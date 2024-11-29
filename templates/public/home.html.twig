@@ -1,0 +1,381 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}ICC - Abidjan | Conférence des femmes{% endblock %}
+
+{% block stylesheets %}
+    <link rel="stylesheet" href="{{ asset('css/homestyle.css') }}">
+{% endblock %}
+
+{% block javascripts %}
+    <script src="{{ asset('js/public/attendeesRegistrationForm.js') }}" defer></script>
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-element-bundle.min.js"></script>
+{% endblock %}
+
+{% block body %}
+    {# message if an attendee has been registered #}
+    {% if app.flashes('attendees_registration_success') is defined %}
+        {% for registration_done_message in app.flashes('attendees_registration_success') %}
+            <p class="registration-validate-text">
+                {{ registration_done_message }}
+            </p>
+        {% endfor %}
+    {% endif %}
+
+
+    <header>
+        <div class="img-block">
+            <a href="#">
+                <img src="{{ asset('img/logo PQB.jpg') }}" alt="impact_centre_chretien_conference_des_femmes_logo">
+            </a>
+        </div>
+
+        <div class="header-info">
+            <p>
+                <a href="#" class="--hv-purple">A propos</a>
+            </p>
+
+            <p>
+                <a href="#" class="--hv-purple">Intervenant(e)s</a>
+            </p>
+
+            <p>
+                <a href="#" class="--hv-purple">Programme</a>
+            </p>
+
+            <p>
+                <a href="#" class="--hv-purple">Contact</a>
+            </p>
+
+            <p>
+                <a href="#" id="btn-participate">Participer</a>
+            </p>
+        </div>
+    </header>
+
+
+    <section id="swiper-block">
+        {# <h1>ICC - Abidjan | Conférence des femmes</h1> #}
+
+
+        <swiper-container class="mySwiper" pagination="true" pagination-clickable="true" navigation="true" space-between="30" centered-slides="true" autoplay-delay="2500" autoplay-disable-on-interaction="false">
+            <swiper-slide>
+                <img src="{{ asset('img/1.jpg') }}" alt="impact_centre_chretien_conference_des_femmes_slide_1">
+            </swiper-slide>
+
+            <swiper-slide>
+                <img src="{{ asset('img/2.jpg') }}" alt="impact_centre_chretien_conference_des_femmes_slide_2">
+            </swiper-slide>
+
+            <swiper-slide>
+                <img src="{{ asset('img/3.jpg') }}" alt="impact_centre_chretien_conference_des_femmes_slide_3">
+            </swiper-slide>
+
+            <swiper-slide>
+                <img src="{{ asset('img/4.jpg') }}" alt="impact_centre_chretien_conference_des_femmes_slide_4">
+            </swiper-slide>
+
+            <swiper-slide>
+                <img src="{{ asset('img/5.jpg') }}" alt="impact_centre_chretien_conference_des_femmes_slide_5">
+            </swiper-slide>
+        </swiper-container>
+
+    </section>
+
+
+    <section class="about">
+        <div class="img-block">
+            <img src="{{ asset('img/plusqbelle.png') }}" alt="impact_centre_chretien_conference_plus_que_belle_image">
+        </div>
+
+        <div class="about__title">
+            <h1>À propos de la Conférence</h1>
+
+            <h2>
+                Rejoignez-nous pour un événement unique dédié à l'autonomisation des femmes, à l'inspiration et à l'innovation. Cette conférence rassemble des leaders, des professionnelles et des militantes passionnées par l'égalité des genres et l'avancement des droits des femmes.
+            </h2>
+        </div>
+
+        {#
+            ici on va simplement retirer les deux blocks et palcer la video explicative.
+            Concernant le deuxième block on peut soit l'afficher sous forme de modal
+
+
+             <div>
+            <h1>Notre Mission</h1>
+
+            <p>
+                Cette conférence vise à explorer la notion de beauté en dépassant les simples apparences pour se concentrer également sur l'aspect intérieur. L'événement réunira des experts du bien-être, des psychologues et des figures publiques pour discuter de l'importance de l’estime de soi, de la santé mentale, et du développement personnel dans la perception de la beauté de façon spécifique et dans sa propre vie de façon générale. À travers des échanges enrichissants, nous aborderons les liens profonds entre l'apparence extérieure et le bien-être intérieur, tout en déconstruisant les standards sociaux de la beauté pour promouvoir une vision plus inclusive et véridique selon l’Evangile du CHRIST.
+            </p>
+        </div>
+
+        <div>
+            <h1>Ce que vous allez découvrir</h1>
+
+            <p>
+                CONFÉRENCE INSPIRANTE : Conférence inspirante abordant la beauté intérieure et extérieure, avec des discussions et des conseils pratiques pour équilibrer le bien-être physique et émotionnel.
+                ATELIER SUR LA BEAUTÉ EXTÉRIEURE : Atelier pratique mettant en avant des astuces de soin de la peau, de maquillage et de style personnel pour valoriser l'apparence extérieure.
+                ATELIER SUR LA BEAUTÉ INTÉRIEURE : Atelier introspectif explorant le développement personnel, la confiance en soi et le bien-être émotionnel pour cultiver une beauté intérieure authentique et durable.
+                TALK SHOW : Talk show dynamique avec des invités spéciaux et des discussions stimulantes sur des sujets variés et pertinents, favorisant l'interaction avec le public.
+                OPPORTUNITÉ DE RÉSEAUTAGE : Séances de réseautage pour créer des connexions professionnelles et personnelles solides, partager des idées et découvrir de nouvelles opportunités.
+                EXPOSITION VENTE : Exposition vente présentant une sélection de produits artisanaux, de créations uniques et de marques locales, offrant une expérience de shopping enrichissante et diversifiée.
+            </p>
+        </div>
+        #}
+
+
+        <div class="about__content">
+            <iframe
+                    {# src="https://www.youtube.com/watch?v=6z4n4y6w_-w&list=PLt9ZBqJwhtcsCxxQCb9k9IBtqsA_YiYpR" #}
+                    src="https://www.youtube.com/embed/6z4n4y6w_-w"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                    allowfullscreen
+            >
+
+            </iframe>
+        </div>
+
+        <div class="btn-participate-block">
+            <a href="#">S'inscrire à la conférence</a>
+        </div>
+
+    </section>
+
+
+    <section class="speakers">
+
+        <div class="speakers__text">
+            <h1 class="speakers__text--blue">PLUS QUE BELLE - CONFERENCE</h1>
+
+            <h2 class="speakers__text--blue">(1ere EDITION)</h2>
+
+            <p class="speakers__text--blue">Nos Intervenants</p>
+
+            <p>
+                Des femmes inspirantes, des leaders du changement, prêtes à partager leur expertise, leurs histoires et leur vision pour un avenir égalitaire et inclusif.
+            </p>
+        </div>
+
+
+        <div>
+
+            <div>
+                {# put here speakers pictures #}
+                <div class="speakers-img">
+                    <img>
+                </div>
+
+                <div class="speakers-text">
+                    <h2>Marie Dupont</h2>
+
+                    <h3>CEO & Fondatrice, Tech Innovators</h3>
+
+                    <p>
+                        Marie est une pionnière dans le domaine des technologies. Elle a fondé une entreprise dédiée à l'innovation technologique, en mettant l'accent sur la diversité et l'inclusion dans le secteur tech. Son discours se concentrera sur l'autonomisation des femmes dans l'industrie technologique.
+                    </p>
+                </div>
+            </div>
+
+            <div>
+                {# put here speakers pictures #}
+                <div class="speakers-img">
+                    <img>
+                </div>
+
+                <div class="speakers-text">
+                    <h2>Sophie Leclerc</h2>
+
+                    <h3>Directrice des opérations, Women in Business</h3>
+
+                    <p>
+                        Sophie travaille à promouvoir les femmes dans les carrières de direction et d'entrepreneuriat. Elle partagera des stratégies pour réussir en tant que femme dans des rôles de leadership et comment briser les barrières du genre.
+                    </p>
+                </div>
+            </div>
+
+            <div>
+                {# put here speakers pictures #}
+                <div class="speakers-img">
+                    <img>
+                </div>
+
+                <div class="speakers-text">
+                    <h2>Amina Diallo</h2>
+
+                    <h3>Activiste et Fondatrice de "Femmes Unies"</h3>
+
+                    <p>
+                        Amina est une militante des droits humains et une défenseure des femmes. Elle est la fondatrice de "Femmes Unies", une organisation dédiée à la lutte contre les violences faites aux femmes. Elle parlera de la résilience et du courage des femmes dans des situations difficiles.
+                    </p>
+                </div>
+            </div>
+
+            <div>
+                {# put here speakers pictures #}
+                <div class="speakers-img">
+                    <img>
+                </div>
+
+                <div class="speakers-text">
+                    <h2>Marie Dupont</h2>
+
+                    <h3>CEO & Fondatrice, Tech Innovators</h3>
+
+                    <p>
+                        Marie est une pionnière dans le domaine des technologies. Elle a fondé une entreprise dédiée à l'innovation technologique, en mettant l'accent sur la diversité et l'inclusion dans le secteur tech. Son discours se concentrera sur l'autonomisation des femmes dans l'industrie technologique.
+                    </p>
+                </div>
+            </div>
+
+            <div>
+                {# put here speakers pictures #}
+                <div class="speakers-img">
+                    <img>
+                </div>
+
+                <div class="speakers-text">
+                    <h2>Marie Dupont</h2>
+
+                    <h3>CEO & Fondatrice, Tech Innovators</h3>
+
+                    <p>
+                        Marie est une pionnière dans le domaine des technologies. Elle a fondé une entreprise dédiée à l'innovation technologique, en mettant l'accent sur la diversité et l'inclusion dans le secteur tech. Son discours se concentrera sur l'autonomisation des femmes dans l'industrie technologique.
+                    </p>
+                </div>
+            </div>
+
+            <div>
+                {# put here speakers pictures #}
+                <div class="speakers-img">
+                    <img>
+                </div>
+
+                <div class="speakers-text">
+                    <h2>Marie Dupont</h2>
+
+                    <h3>CEO & Fondatrice, Tech Innovators</h3>
+
+                    <p>
+                        Marie est une pionnière dans le domaine des technologies. Elle a fondé une entreprise dédiée à l'innovation technologique, en mettant l'accent sur la diversité et l'inclusion dans le secteur tech. Son discours se concentrera sur l'autonomisation des femmes dans l'industrie technologique.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <footer>
+        <article>
+
+            <div>
+                <form>
+                    <label for="newsletter">Abonnez-vous à notre Newsletter</label>
+                    <input type="email" placeholder="Votre email" id="newsletter">
+
+                    <button type="submit">S'abonner</button>
+                </form>
+            </div>
+
+
+            <div>
+                {# todo: ici mettre uniquement les liens des réseaux des plus que belle #}
+                <a href="https://www.facebook.com">
+                    <img src="https://img.icons8.com/color/48/000000/facebook.png" alt="Facebook">
+                </a>
+
+                <a href="https://www.twitter.com">
+                    <img src="https://img.icons8.com/color/48/000000/twitter.png" alt="Twitter">
+                </a>
+
+                <a href="https://www.instagram.com">
+                    <img src="https://img.icons8.com/color/48/000000/instagram-new.png" alt="Instagram">
+                </a>
+
+                <a href="https://www.linkedin.com">
+                    <img src="https://img.icons8.com/color/48/000000/linkedin.png" alt="LinkedIn">
+                </a>
+            </div>
+
+
+            <div>
+                <h1>Liens utiles</h1>
+
+                <ul>
+                    <li>
+                        <a href="#">À propos</a>
+                    </li>
+
+                    <li>
+                        <a href="#">Intervenantes</a>
+                    </li>
+
+                    <li>
+                        <a href="#">Programme</a>
+                    </li>
+
+                    <li>
+                        <a href="#">Contact</a>
+                    </li>
+
+                    <li>
+                        <a href="#">Conditions d'utilisations</a>
+                    </li>
+
+                    <li>
+                        <a href="#">Politique de confidentialité</a>
+                    </li>
+                </ul>
+            </div>
+        </article>
+
+
+        <hr>
+
+        <p>Impact Centre Chretien - Abidjan | © Tous droits reservés {{ 'now'|date('Y') }}</p>
+    </footer>
+
+    <div class="form-container">
+
+        {{ form_start(attendeesRegistrationForm, {'attr' : {'id' : 'attendees_registration_form'}}) }}
+
+        <div class="input-block">
+
+            <div>
+                {{ form_label(attendeesRegistrationForm.lastName) }}
+                {{ form_widget(attendeesRegistrationForm.lastName) }}
+                {{ form_errors(attendeesRegistrationForm.lastName) }}
+            </div>
+
+            <div>
+                {{ form_label(attendeesRegistrationForm.firstName) }}
+                {{ form_widget(attendeesRegistrationForm.firstName) }}
+                {{ form_errors(attendeesRegistrationForm.firstName) }}
+            </div>
+
+            <div>
+                {{ form_label(attendeesRegistrationForm.email) }}
+                {{ form_widget(attendeesRegistrationForm.email) }}
+                {{ form_errors(attendeesRegistrationForm.email) }}
+            </div>
+
+            <div>
+                {{ form_label(attendeesRegistrationForm.phone) }}
+                {{ form_widget(attendeesRegistrationForm.phone) }}
+                {{ form_errors(attendeesRegistrationForm.phone) }}
+            </div>
+
+            <div>
+                {{ form_widget(attendeesRegistrationForm.newsletter) }}
+                {{ form_errors(attendeesRegistrationForm.newsletter) }}
+                <span>Souscrivez à notre newsletter et recevez des informations concernant l'évènement</span>
+            </div>
+
+            <div>
+                <button type="submit">S'enregistrer</button>
+            </div>
+
+        </div>
+        {{ form_end(attendeesRegistrationForm) }}
+    </div>
+
+
+{% endblock %}
